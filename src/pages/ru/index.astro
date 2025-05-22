@@ -1,0 +1,10 @@
+---
+import Welcome from '../../components/Welcome.astro';
+import Layout from '../../layouts/Layout.astro';
+import '../../assets/tailwind.css';
+import { t } from "i18next";
+---
+
+<Layout>
+	<Welcome name={t('name')} position={t('position')} />
+</Layout> 
