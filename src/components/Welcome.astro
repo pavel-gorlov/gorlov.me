@@ -1,20 +1,29 @@
 ---
-export interface Props {
-	name: string;
-	position: string;
-}
-const { name, position } = Astro.props;
+import { t } from "i18next";
 ---
 
-<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 via-white to-gray-200">
-	<div class="w-full max-w-xl px-10 py-16 flex flex-col items-center bg-white/80">
-		<h1 class="text-5xl font-semibold tracking-tight text-gray-900 mb-4 text-center" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">{name}</h1>
-		<p class="text-2xl text-gray-500 font-light mb-10 text-center">{position}</p>
-		<div class="flex flex-col gap-3 w-full items-center">
-			<a href="mailto:gorlov@example.com" class="text-lg text-blue-600 hover:underline transition">gorlov@example.com</a>
-			<a href="https://t.me/gorlov" class="text-lg text-blue-600 hover:underline transition">@gorlov (Telegram)</a>
-			<a href="https://github.com/gorlov" class="text-lg text-blue-600 hover:underline transition">github.com/gorlov</a>
-		</div>
-	</div>
-</div>
+<!-- Раздел "Обо мне" -->
+  <section id="about">
+    <h3>{t('about.title')}</h3>
+    <p>{t('about.description1')}</p>
+    <p>{t('about.description2')}</p>
+  </section>
 
+  <!-- Раздел "Проекты" -->
+  <section id="projects">
+    <h3>{t('projects.title')}</h3>
+    <ul>
+      <li><strong>SuperProduct X</strong> – {t('projects.items.superproduct')}</li>
+      <li><strong>OpenSource Library Y</strong> – {t('projects.items.opensource')}</li>
+      <li><strong>Award Z</strong> – {t('projects.items.award')}</li>
+    </ul>
+  </section>
+
+  <!-- Раздел "Контакты" -->
+  <section id="contacts">
+    <h3>{t('contacts.title')}</h3>
+    <p>{t('contacts.description')}</p>
+    <p><strong>{t('contacts.email')}:</strong> <a href="mailto:ivan@example.com">ivan@example.com</a><br/>
+       <strong>{t('contacts.linkedin')}:</strong> <a href="#">ivan-ivanov</a><br/>
+       <strong>{t('contacts.github')}:</strong> <a href="#">@ivanivanov</a></p>
+  </section>

@@ -1,13 +1,35 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-import '../assets/tailwind.css';
-import { t } from "i18next";
-
+import i18next from "i18next";
+i18next.changeLanguage("en");
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome name={t('name')} position={t('position')} />
+	<!-- Раздел "Обо мне" -->
+  <section id="about">
+    <h3>About Me</h3>
+    <p>Lead engineer and technical manager with 10+ years of experience. Currently, I lead the technology strategy at SuperStartup, where we develop AI-based cloud solutions. Previously, I worked at AcmeCorp and TechSolutions, where I launched several successful products.</p>
+    <p>I actively share my knowledge: I speak at conferences and write a blog. I value minimalism in code and design, focusing on performance and user convenience.</p>
+  </section>
+
+  <!-- Раздел "Проекты" -->
+  <section id="projects">
+    <h3>Projects and Achievements</h3>
+    <ul>
+      <li><strong>SuperProduct X</strong> – development of a high-load platform (100k+ daily users).</li>
+      <li><strong>OpenSource Library Y</strong> – created a popular library (5k stars on GitHub) for data processing.</li>
+      <li><strong>Award Z</strong> – ranked in the top 10 young CTOs by TechMagazine (2024).</li>
+    </ul>
+  </section>
+
+  <!-- Раздел "Контакты" -->
+  <section id="contacts">
+    <h3>Contacts</h3>
+    <p>I would be glad to engage in professional communication and new projects. You can contact me via email or social media:</p>
+    <p><strong>Email:</strong> <a href="mailto:ivan@example.com">ivan@example.com</a><br/>
+       <strong>LinkedIn:</strong> <a href="#">ivan-ivanov</a><br/>
+       <strong>GitHub:</strong> <a href="#">@ivanivanov</a></p>
+  </section>
 </Layout>

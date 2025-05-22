@@ -2,4 +2,10 @@
 export default {
     defaultLocale: "en",
     locales: ["en", "ru"],
+    i18nextServer: {
+        debug: true,
+        routes: {
+            prefixDefaultLocale: false,
+        }
+    }
 };

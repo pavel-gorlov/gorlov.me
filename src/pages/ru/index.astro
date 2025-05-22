@@ -1,10 +1,44 @@
 ---
-import Welcome from '../../components/Welcome.astro';
 import Layout from '../../layouts/Layout.astro';
-import '../../assets/tailwind.css';
-import { t } from "i18next";
+import i18next from "i18next";
+// console.log('Astro.url.pathname for /ru/index.astro:', Astro.url.pathname);
+i18next.changeLanguage("ru");
 ---
 
 <Layout>
-	<Welcome name={t('name')} position={t('position')} />
-</Layout> 
+	<!-- Раздел "Обо мне" -->
+  <section id="about">
+    <h3>Обо мне</h3>
+    <p>Ведущий инженер и технический руководитель с 10+ годами опыта. 
+       Сейчас руковожу технологической стратегией в SuperStartup, 
+       где занимаемся разработкой облачных решений на базе AI. 
+       Ранее работал в AcmeCorp и TechSolutions, 
+       где запустил несколько успешных продуктов.</p>
+    <p>Активно делюсь знаниями: выступаю на конференциях, веду блог. 
+       Ценю минимализм в коде и дизайне, фокусируюсь на производительности 
+       и удобстве пользователей.</p>
+  </section>
+
+  <!-- Раздел "Проекты" -->
+  <section id="projects">
+    <h3>Проекты и достижения</h3>
+    <ul>
+      <li><strong>SuperProduct X</strong> – разработка высоконагруженной платформы 
+          (100k+ пользователей ежедневно).</li>
+      <li><strong>OpenSource Library Y</strong> – создал популярную библиотеку 
+          (5k звёзд на GitHub) для обработки данных.</li>
+      <li><strong>Награда Z</strong> – вошёл в топ-10 молодых CTO по версии TechMagazine (2024).</li>
+    </ul>
+  </section>
+
+  <!-- Раздел "Контакты" -->
+  <section id="contacts">
+    <h3>Контакты</h3>
+    <p>Буду рад профессиональному общению и новым проектам. Связаться со мной можно по email 
+       или в соцсетях:</p>
+    <p><strong>Email:</strong> <a href="mailto:ivan@example.com">ivan@example.com</a><br/>
+       <strong>LinkedIn:</strong> <a href="#">ivan-ivanov</a><br/>
+       <strong>GitHub:</strong> <a href="#">@ivanivanov</a></p>
+  </section>
+
+</Layout>

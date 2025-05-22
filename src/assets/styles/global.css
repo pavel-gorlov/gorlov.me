@@ -1,0 +1,154 @@
+:root {
+  --bg-color: #FFFFFF;
+  --text-color: #000000;
+  --secondary-text-color: #555555;
+  --link-color: #000000;
+  --link-hover-color: #000000;
+  --footer-text-color: #777777;
+  --footer-link-color: #555555;
+  --project-bullet-color: #999999;
+  --button-bg-color: transparent;
+  --button-icon-color: #000000;
+}
+
+.dark {
+  --bg-color: #1a1a1a; /* Темно-серый фон */
+  --text-color: #e0e0e0; /* Светло-серый текст */
+  --secondary-text-color: #aaaaaa; /* Менее яркий серый текст */
+  --link-color: #bbbbbb; /* Светло-серый для ссылок */
+  --link-hover-color: #ffffff; /* Белый для hover ссылок */
+  --footer-text-color: #999999; /* Серый для футера */
+  --footer-link-color: #bbbbbb; /* Светло-серый для ссылок в футере */
+  --project-bullet-color: #777777; /* Темно-серый для маркеров */
+  --button-icon-color: #e0e0e0; /* Светло-серый для иконок кнопки */
+}
+
+/* Обнуление стилей Tailwind, если они уже есть */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0; padding: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header, nav, section, footer {
+  max-width: 800px; margin: 0 auto;
+  padding: 1.5em;
+}
+
+header {
+  padding-top: 4em; padding-bottom: 3em;
+}
+
+h1, h2, h3 {
+  margin: 0.2em 0;
+  font-weight: normal;
+  color: var(--text-color);
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 1.5em; color: var(--secondary-text-color);
+}
+
+nav {
+  text-align: right;
+  font-size: 0.95em;
+  margin-bottom: 2em;
+  display: flex; /* Для позиционирования кнопки */
+  justify-content: flex-end; /* Выравнивание элементов вправо */
+  align-items: center; /* Центрирование по вертикали */
+}
+
+nav a {
+  color: var(--link-color);
+  text-decoration: none;
+  margin-left: 1.5em;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  color: var(--link-hover-color);
+}
+
+/* Стили для кнопки переключения темы */
+#theme-toggle {
+  background: var(--button-bg-color);
+  border: none;
+  cursor: pointer;
+  padding: 0.5em;
+  margin-left: 1.5em; /* Отступ от других ссылок */
+  display: inline-flex; /* Для иконок */
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Круглая кнопка */
+}
+
+#theme-toggle .icon {
+  width: 20px; /* Размер иконок */
+  height: 20px;
+  stroke: var(--button-icon-color);
+}
+
+/* Показываем луну в светлой теме, солнце в темной (по умолчанию) */
+.dark #theme-toggle .icon-tabler-sun {
+  display: block;
+}
+.dark #theme-toggle .icon-tabler-moon-stars {
+  display: none;
+}
+
+html:not(.dark) #theme-toggle .icon-tabler-sun {
+  display: none;
+}
+html:not(.dark) #theme-toggle .icon-tabler-moon-stars {
+  display: block;
+}
+
+section {
+  margin-bottom: 3em;
+}
+
+section#about p {
+  font-size: 1.1em;
+  color: var(--text-color);
+}
+
+section#projects ul {
+  list-style: none; padding: 0;
+}
+
+section#projects li {
+  margin-bottom: 0.5em;
+  color: var(--text-color);
+}
+
+section#projects li::before {
+  content: "• "; 
+  color: var(--project-bullet-color);
+}
+
+footer {
+  text-align: center;
+  font-size: 0.9em;
+  color: var(--footer-text-color);
+  padding-bottom: 3em;
+}
+
+footer a { 
+  color: var(--footer-link-color); 
+  text-decoration: none; 
+}
+footer a:hover { 
+  text-decoration: underline; 
+  color: var(--link-hover-color);
+} 

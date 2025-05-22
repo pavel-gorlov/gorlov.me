@@ -1,4 +1,32 @@
 {
   "name": "Pavel Gorlov",
-  "position": "Frontend Developer"
+  "position": "Frontend Developer",
+  "menu": {
+    "about": "About",
+    "projects": "Projects",
+    "contacts": "Contacts"
+  },
+  "about": {
+    "title": "About Me",
+    "description1": "Lead engineer and technical leader with 10+ years of experience. Currently leading technology strategy at SuperStartup, where we develop cloud solutions based on AI. Previously worked at AcmeCorp and TechSolutions, where I launched several successful products.",
+    "description2": "Actively sharing knowledge: speaking at conferences, writing a blog. I value minimalism in code and design, focusing on performance and user experience."
+  },
+  "projects": {
+    "title": "Projects and Achievements",
+    "items": {
+      "superproduct": "SuperProduct X – development of a high-load platform (100k+ daily users).",
+      "opensource": "OpenSource Library Y – created a popular library (5k stars on GitHub) for data processing.",
+      "award": "Award Z – ranked in top 10 young CTOs according to TechMagazine (2024)."
+    }
+  },
+  "contacts": {
+    "title": "Contacts",
+    "description": "I welcome professional communication and new projects. You can reach me via email or social networks:",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "footer": {
+    "copyright": "© 2025 Pavel Gorlov. Made with ♡ and minimalism."
+  }
 } 
