@@ -2,14 +2,16 @@
 import i18next, { t } from "i18next";
 import '../assets/styles/global.css';
 import ThemeSwitcher from '../components/ThemeSwitcher.astro';
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 
 // пути для меню
 const cvPath = `${i18next.language === 'ru' ? '/ru' : ''}/cv`;
 const homePath = i18next.language === 'ru' ? '/ru/' : '/';
 
-// определяем активный путь
-const normalize = (p: string) => p.replace(/\/+$/, '');
+// @ts-ignore Astro global is provided at runtime
 const currentPath = Astro.url.pathname;
+// нормализуем путь для сравнения, удаляя завершающие слеши
+const normalize = (p: string) => p.replace(/\/+$/, '');
 const isHome = normalize(currentPath) === normalize(homePath);
 const isCV = normalize(currentPath).startsWith(normalize(cvPath));
 ---
@@ -42,6 +44,7 @@ const isCV = normalize(currentPath).startsWith(normalize(cvPath));
     <nav class="site-nav">
       <a href={homePath} aria-current={isHome ? 'page' : undefined} class={isHome ? 'font-semibold underline decoration-wavy' : ''}>{t('menu.home')}</a>
       <a href={cvPath} aria-current={isCV ? 'page' : undefined} class={isCV ? 'font-semibold underline decoration-wavy' : ''}>{t('menu.cv')}</a>
+      <LanguageSwitcher />
       <ThemeSwitcher />
     </nav>
   </header>

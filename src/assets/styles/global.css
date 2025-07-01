@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --bg-color: #FFFFFF;
@@ -23,6 +24,11 @@
   --footer-link-color: #bbbbbb; /* Светло-серый для ссылок в футере */
   --project-bullet-color: #777777; /* Темно-серый для маркеров */
   --button-icon-color: #e0e0e0; /* Светло-серый для иконок кнопки */
+}
+
+@theme {
+  --color-slate-800: #1f1f1f;
+  --color-slate-700: #2e2e2e;
 }
 
 
@@ -87,7 +93,7 @@ nav {
   align-items: center; /* Центрирование по вертикали */
 }
 
-nav a {
+nav a, nav details {
   color: var(--link-color);
   margin-left: 1.5em;
 }
@@ -108,7 +114,7 @@ nav a:hover {
   border: none;
   cursor: pointer;
   padding: 0.5em;
-  margin-left: 1.5em; /* Отступ от других ссылок */
+  margin-left: 0.5em; /* Отступ от других ссылок */
   display: inline-flex; /* Для иконок */
   align-items: center;
   justify-content: center;
