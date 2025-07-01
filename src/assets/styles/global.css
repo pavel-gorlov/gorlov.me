@@ -61,11 +61,11 @@ h2 {
 }
 
 nav {
-  text-align: right;
+  text-align: left; /* Выравнивание содержимого влево */
   font-size: 0.95em;
   margin-bottom: 2em;
-  display: flex; /* Для позиционирования кнопки */
-  justify-content: flex-end; /* Выравнивание элементов вправо */
+  display: flex; /* Для позиционирования элементов */
+  justify-content: flex-start; /* Выравнивание элементов влево */
   align-items: center; /* Центрирование по вертикали */
 }
 
@@ -73,6 +73,11 @@ nav a {
   color: var(--link-color);
   text-decoration: none;
   margin-left: 1.5em;
+}
+
+/* Убираем отступ слева у первого элемента меню */
+nav a:first-child {
+  margin-left: 0;
 }
 
 nav a:hover {
