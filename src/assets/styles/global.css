@@ -43,7 +43,26 @@ header, nav, section, footer {
 }
 
 header {
-  padding-top: 4em; padding-bottom: 3em;
+  padding-top: 4em;
+  padding-bottom: 3em;
+  display: grid;
+  grid-template-columns: 1fr 150px; /* текст/меню и фото */
+  grid-template-rows: auto auto; /* заголовок и меню */
+  gap: 1.5em;
+  align-items: start;
+}
+
+/* Размещение внутренних областей */
+header .header-text {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+header nav {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  margin: 0; /* отменяем внешние отступы, чтобы сохранить сетку */
+  padding: 0; /* убираем внутренние отступы */
 }
 
 h1, h2, h3 {
@@ -156,4 +175,26 @@ footer a {
 footer a:hover { 
   text-decoration: underline; 
   color: var(--link-hover-color);
+}
+
+/* Плейсхолдер фотографии в сетке */
+.photo-placeholder {
+  width: 150px;
+  height: 150px;
+  background-color: #cccccc;
+  border-radius: 8px; /* скруглённые углы */
+  grid-column: 2 / 3;
+  grid-row: 1 / 3; /* растягиваем на две строки */
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.4em; /* смещаем вниз, выравнивая с началом текста */
+}
+
+.photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
 } 

@@ -14,19 +14,29 @@ import ThemeSwitcher from '../components/ThemeSwitcher.astro';
 </head>
 <body>
 
-  <!-- Шапка сайта с именем и позицией -->
-  <header>
-    <h1>{t('name')}</h1>
-    <h2>{t('position')}</h2>
+  <!-- Шапка сайта, меню и плейсхолдер фотографии объединены в общую сетку -->
+  <header class="site-header">
+    <div class="header-text">
+      <h1>{t('name')}</h1>
+      <h2>{t('position')}</h2>
+    </div>
+
+    <div class="photo-placeholder" aria-label="photo placeholder">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="avatarTitle" width="100%" height="100%">
+        <title id="avatarTitle">{t('name')}</title>
+        <circle cx="64" cy="40" r="24" fill="#e2e8f0" />
+        <path d="M16 116c0-26.5 21.5-48 48-48s48 21.5 48 48" fill="#e2e8f0" />
+      </svg>
+    </div>
+
+    <nav class="site-nav">
+      <a href="#about">{t('menu.about')}</a>
+      <a href="#projects">{t('menu.projects')}</a>
+      <a href="#contacts">{t('menu.contacts')}</a>
+      <ThemeSwitcher />
+    </nav>
   </header>
 
-  <!-- Навигационное меню (якоря по секциям) -->
-  <nav>
-    <a href="#about">{t('menu.about')}</a>
-    <a href="#projects">{t('menu.projects')}</a>
-    <a href="#contacts">{t('menu.contacts')}</a>
-    <ThemeSwitcher />
-  </nav>
   <slot />
 
   <!-- Футер с копирайтом -->
