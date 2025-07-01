@@ -2,9 +2,8 @@
   "name": "Pavel Gorlov",
   "position": "Frontend Developer",
   "menu": {
-    "about": "About",
-    "projects": "Projects",
-    "contacts": "Contacts"
+    "cv": "CV",
+    "home": "Home"
   },
   "about": {
     "title": "About Me",

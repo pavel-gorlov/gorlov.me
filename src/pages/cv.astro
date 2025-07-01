@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+import i18next from "i18next";
+
+i18next.changeLanguage("en");
+---
+
+<Layout>
+  <article class="mx-auto max-w-3xl px-4 lg:px-0">
+
+    <!-- Professional Summary -->
+    <section id="summary" class="mb-6">
+      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Professional Summary</h2>
+      <p>
+        Accomplished technical manager with 10+ years of experience building and leading cross-functional engineering teams. Proven record of delivering high-impact products, optimizing processes, and fostering a culture of continuous improvement. Passionate about clean code, developer experience, and user-centric solutions.
+      </p>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="mb-6">
+      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Experience</h2>
+
+      <div class="mb-4">
+        <h3 class="font-semibold">Head of Engineering · SuperStartup</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">2021 — Present · Remote</p>
+        <ul class="list-disc list-inside ml-4">
+          <li>Led a 20-person engineering org shipping an AI-powered SaaS platform used by 100k+ daily users.</li>
+          <li>Introduced trunk-based development & CI/CD, cutting release cycle from weeks to daily deployments.</li>
+          <li>Reduced cloud spend by 25 % through observability and data-driven optimizations.</li>
+        </ul>
+      </div>
+
+      <div class="mb-4">
+        <h3 class="font-semibold">Senior Frontend Engineer · TechSolutions</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">2017 — 2021 · Saint-Petersburg, Russia</p>
+        <ul class="list-disc list-inside ml-4">
+          <li>Architected component library adopted across 8 internal products, unifying UI and reducing defects by 30 %.</li>
+          <li>Migrated legacy codebase to TypeScript & React, improving developer onboarding speed by 40 %.</li>
+        </ul>
+      </div>
+
+      <div class="mb-4">
+        <h3 class="font-semibold">Frontend Developer · AcmeCorp</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">2013 — 2017 · Saint-Petersburg, Russia</p>
+        <ul class="list-disc list-inside ml-4">
+          <li>Developed customer-facing dashboards that increased user engagement by 15 %.</li>
+          <li>Implemented performance monitoring, shaving initial load time from 4 s to 1.2 s.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="mb-6">
+      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Education</h2>
+      <p><strong>M.Sc. Computer Science</strong>, Saint Petersburg State University — 2013</p>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="mb-6">
+      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Key Skills</h2>
+      <ul class="flex flex-wrap gap-2">
+        <li class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded">JavaScript / TypeScript</li>
+        <li class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded">React / Astro</li>
+        <li class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded">Node.js</li>
+        <li class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded">AWS & Docker</li>
+        <li class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded">Leadership & Mentoring</li>
+      </ul>
+    </section>
+
+    <!-- Languages -->
+    <section id="languages" class="mb-6">
+      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Languages</h2>
+      <p>Russian — Native · English — Advanced (C1)</p>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications" class="mb-6">
+      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Certifications</h2>
+      <ul class="list-disc list-inside ml-4">
+        <li>AWS Certified Solutions Architect — Associate (2023)</li>
+      </ul>
+    </section>
+  </article>
+</Layout> 

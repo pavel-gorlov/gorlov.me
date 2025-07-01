@@ -1,0 +1,83 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import i18next from "i18next";
+
+i18next.changeLanguage("ru");
+---
+
+<Layout>
+  <article class="mx-auto max-w-3xl px-4 lg:px-0">
+    <!-- Профиль -->
+    <section id="summary" class="mb-6">
+      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Профессиональный профиль</h2>
+      <p>
+        Опытный технический руководитель с 10+ годами в разработке и управлении кросс-функциональными командами. Запускал продукты с высоким влиянием на бизнес, оптимизировал процессы и формировал культуру непрерывного совершенствования. Привержен чистому коду и пользовательскому фокусу.
+      </p>
+    </section>
+
+    <!-- Опыт работы -->
+    <section id="experience" class="mb-6">
+      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Опыт работы</h2>
+
+      <div class="mb-4">
+        <h3 class="font-semibold">Head of Engineering · SuperStartup</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">2021 — настоящее время · удалённо</p>
+        <ul class="list-disc list-inside ml-4">
+          <li>Руководил отделом из 20 инженеров, выпустившим AI-платформу с аудиторией 100k+ ежедневных пользователей.</li>
+          <li>Внедрил trunk-based development и CI/CD, сократив цикл релиза до ежедневных выкладок.</li>
+          <li>Снизил расходы на облако на 25 % за счёт мониторинга и оптимизации.</li>
+        </ul>
+      </div>
+
+      <div class="mb-4">
+        <h3 class="font-semibold">Senior Frontend Engineer · TechSolutions</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">2017 — 2021 · Санкт-Петербург</p>
+        <ul class="list-disc list-inside ml-4">
+          <li>Спроектировал библиотеку компонентов, принятую в 8 продуктах, что снизило дефекты UI на 30 %.</li>
+          <li>Мигрировал легаси-код на TypeScript / React, сократив время онбординга разработчиков на 40 %.</li>
+        </ul>
+      </div>
+
+      <div class="mb-4">
+        <h3 class="font-semibold">Frontend Developer · AcmeCorp</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">2013 — 2017 · Санкт-Петербург</p>
+        <ul class="list-disc list-inside ml-4">
+          <li>Разработал аналитические дашборды, повысив вовлечённость пользователей на 15 %.</li>
+          <li>Оптимизировал производительность, сократив время загрузки с 4 с до 1,2 с.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Образование -->
+    <section id="education" class="mb-6">
+      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Образование</h2>
+      <p><strong>Магистр компьютерных наук</strong>, Санкт-Петербургский государственный университет — 2013</p>
+    </section>
+
+    <!-- Навыки -->
+    <section id="skills" class="mb-6">
+      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Ключевые навыки</h2>
+      <ul class="flex flex-wrap gap-2">
+        <li class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded">JavaScript / TypeScript</li>
+        <li class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded">React / Astro</li>
+        <li class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded">Node.js</li>
+        <li class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded">AWS & Docker</li>
+        <li class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded">Лидерство и наставничество</li>
+      </ul>
+    </section>
+
+    <!-- Языки -->
+    <section id="languages" class="mb-6">
+      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Языки</h2>
+      <p>Русский — родной · Английский — продвинутый (C1)</p>
+    </section>
+
+    <!-- Сертификаты -->
+    <section id="certifications" class="mb-6">
+      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Сертификаты</h2>
+      <ul class="list-disc list-inside ml-4">
+        <li>AWS Certified Solutions Architect — Associate (2023)</li>
+      </ul>
+    </section>
+  </article>
+</Layout> 

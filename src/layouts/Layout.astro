@@ -2,6 +2,16 @@
 import i18next, { t } from "i18next";
 import '../assets/styles/global.css';
 import ThemeSwitcher from '../components/ThemeSwitcher.astro';
+
+// пути для меню
+const cvPath = `${i18next.language === 'ru' ? '/ru' : ''}/cv`;
+const homePath = i18next.language === 'ru' ? '/ru/' : '/';
+
+// определяем активный путь
+const normalize = (p: string) => p.replace(/\/+$/, '');
+const currentPath = Astro.url.pathname;
+const isHome = normalize(currentPath) === normalize(homePath);
+const isCV = normalize(currentPath).startsWith(normalize(cvPath));
 ---
 
 <!DOCTYPE html>
@@ -30,9 +40,8 @@ import ThemeSwitcher from '../components/ThemeSwitcher.astro';
     </div>
 
     <nav class="site-nav">
-      <a href="#about">{t('menu.about')}</a>
-      <a href="#projects">{t('menu.projects')}</a>
-      <a href="#contacts">{t('menu.contacts')}</a>
+      <a href={homePath} aria-current={isHome ? 'page' : undefined} class={isHome ? 'font-semibold underline decoration-wavy' : ''}>{t('menu.home')}</a>
+      <a href={cvPath} aria-current={isCV ? 'page' : undefined} class={isCV ? 'font-semibold underline decoration-wavy' : ''}>{t('menu.cv')}</a>
       <ThemeSwitcher />
     </nav>
   </header>

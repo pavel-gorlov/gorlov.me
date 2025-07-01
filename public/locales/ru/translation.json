@@ -2,9 +2,8 @@
   "name": "Павел Горлов",
   "position": "Frontend разработчик",
   "menu": {
-    "about": "Обо мне",
-    "projects": "Проекты",
-    "contacts": "Контакты"
+    "cv": "Резюме",
+    "home": "Главная"
   },
   "about": {
     "title": "Обо мне",
