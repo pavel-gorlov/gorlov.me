@@ -1,0 +1,263 @@
+================================================================================
+GITHUB PROJECTS TIMELINE VALIDATION REPORT
+================================================================================
+
+SUMMARY
+--------------------------------------------------------------------------------
+Total projects in timeline: 111
+Total repositories found in PDF (raw OCR): 43
+Exact matches: 32
+Potential matches (fuzzy): 4
+No matches from OCR: 7
+Projects in timeline NOT detected in PDF: 89
+
+Detection rate: 22/111 (19.8%)
+
+================================================================================
+EXACT MATCHES (32 found)
+================================================================================
+  OCR: KosyanMedia/aviasales                    -> Timeline: aviasales
+       Note: Exact match found
+  OCR: cosyanMedia/avasales                     -> Timeline: aviasales
+       Note: Manual correction applied
+  OCR: ael-golv/aviastation                     -> Timeline: aviastation
+       Note: Exact match found
+  OCR: avel-goriov/aviastation                  -> Timeline: aviastation
+       Note: Exact match found
+  OCR: pvel-gorow/avestaton                     -> Timeline: aviastation
+       Note: Manual correction applied
+  OCR: KosyanMedia/chansey                      -> Timeline: chansey
+       Note: Exact match found
+  OCR: osyanMedia/chansey                       -> Timeline: chansey
+       Note: Exact match found
+  OCR: KosyanMedia/ducklett                     -> Timeline: ducklett
+       Note: Exact match found
+  OCR: KosyanMedia/klt                          -> Timeline: klit
+       Note: Manual correction applied
+  OCR: anMedia/mewiwo                           -> Timeline: mewtwo
+       Note: Manual correction applied
+  OCR: osyanMecia/mewno                         -> Timeline: mewtwo
+       Note: Manual correction applied
+  OCR: osyanMecia/mewwo                         -> Timeline: mewtwo
+       Note: Manual correction applied
+  OCR: antonmedv/monkberry                      -> Timeline: monkberry
+       Note: Exact match found
+  OCR: KosyanMedia/nano                         -> Timeline: nano
+       Note: Exact match found
+  OCR: KosyanMedia/nanowhte                     -> Timeline: nano.white_label
+       Note: Manual correction applied
+  OCR: pavel-gorlov/postess-s                   -> Timeline: postcss-svg
+       Note: Manual correction applied
+  OCR: pavel-gorlov/postess-svg                 -> Timeline: postcss-svg
+       Note: Manual correction applied
+  OCR: pave-gorlov/reirectme                    -> Timeline: redirectme
+       Note: Manual correction applied
+  OCR: pvel-gorow/statcsites                    -> Timeline: static-sites
+       Note: Manual correction applied
+  OCR: KosyanMecia/tp-components                -> Timeline: tp-components
+       Note: Exact match found
+  OCR: KosyanMedia/tavelpayo                    -> Timeline: travelpayouts
+       Note: Manual correction applied
+  OCR: KosyanMedia/tavelpya                     -> Timeline: travelpayouts
+       Note: Manual correction applied
+  OCR: KosyanMedia/travelpayouts                -> Timeline: travelpayouts
+       Note: Exact match found
+  OCR: anMedia/travelpayouts                    -> Timeline: travelpayouts
+       Note: Exact match found
+  OCR: osyanMedia/travelpayouts                 -> Timeline: travelpayouts
+       Note: Exact match found
+  OCR: KosyanMedia/travelpayouts.brands         -> Timeline: travelpayouts.brands
+       Note: Exact match found
+  OCR: KosyanMedia/travelpayouts.com            -> Timeline: travelpayouts.com
+       Note: Exact match found
+  OCR: osyanMecia/travelpayoutscom              -> Timeline: travelpayouts.com
+       Note: Manual correction applied
+  OCR: osyanMedia/ravelpayoute.com              -> Timeline: travelpayouts.com
+       Note: Manual correction applied
+  OCR: osyanMecia/travelpayoutspartnersback     -> Timeline: travelpayouts.partners.back
+       Note: Manual correction applied
+  OCR: KosyanMedia/unie                         -> Timeline: uxie
+       Note: Manual correction applied
+  OCR: KosyanMedia/whitelabel                   -> Timeline: whitelabel
+       Note: Exact match found
+
+================================================================================
+POTENTIAL MATCHES - FUZZY (4 found)
+================================================================================
+  OCR: KosyanMedia/subscription                 -> Timeline: bot_subscription
+       Fuzzy match (similarity: 85.71%)
+  OCR: pavelcorow/aasation                      -> Timeline: aviastation
+       Fuzzy match (similarity: 84.21%)
+  OCR: KosyanMedia/powered                      -> Timeline: powered_by
+       Fuzzy match (similarity: 82.35%)
+  OCR: fanMedia/hotels-on-map                   -> Timeline: hotels-on-map-widget
+       Fuzzy match (similarity: 78.79%)
+
+================================================================================
+NO MATCHES FROM OCR (7 found)
+================================================================================
+These OCR results could not be matched to any timeline project:
+  - KosyanMecia/combined
+  - KosyanMedi/combined
+  - KosyanMedia/calendar
+  - KosyanMedia/combined
+  - KosyanMedia/hotels-on
+  - KosyanMedia/map
+  - anMedia/calendar
+
+================================================================================
+PROJECTS IN TIMELINE NOT DETECTED IN PDF (89 projects)
+================================================================================
+These projects are in the timeline but were not found in the OCR scan:
+
+[A]
+  - abfast.ru
+  - action-fetchers
+  - ads_platform
+  - affiliate_api
+  - airbnb_landing
+  - analytics_aggregators
+  - api-formats
+  - as_pay_by_share
+
+[B]
+  - Baikal-Travel
+  - Brainy
+  - blissey
+  - bots
+
+[C]
+  - c3po
+  - calendar_widget
+  - cascoon
+  - combined_whitelabel
+
+[D]
+  - deployment
+  - devaut
+  - dreamteam_product
+
+[F]
+  - Front-end_TP_test
+  - femida
+  - formerjs
+  - forum
+  - frontier
+
+[G]
+  - gorlov.me
+
+[H]
+  - hackday-city-2014
+  - hotellook2
+  - hotellook_collection_landing
+
+[I]
+  - intelligence
+
+[J]
+  - jetradar_whitelabel
+
+[K]
+  - klit_fetchers
+
+[L]
+  - lingvini
+  - lombard-fetchers
+
+[M]
+  - m.travelpayouts
+  - magic_search
+  - mamka
+  - map.aviasales.ru
+  - megafon_wl
+  - mina_tp
+  - mobile_football
+  - mobile_subscription
+  - money_script
+  - mustache
+
+[N]
+  - nano_api
+  - nano_mobile
+  - nano_ui
+
+[P]
+  - pavliko_site
+  - polyglot
+  - polyglot_locales
+  - postcss
+  - pr-police
+  - problems
+  - psy_it
+  - pulse
+  - pynal
+
+[R]
+  - r2d2
+  - real_ticket
+
+[S]
+  - salesman
+  - search
+  - search_widget
+  - shorty
+  - sms-hub
+  - static-pages
+  - subscription_widget
+
+[T]
+  - temple
+  - templeify
+  - test-tasks
+  - tp-admin
+  - tp-auth-front
+  - tp-datepicker
+  - tp-qa
+  - tp-team_city
+  - tp-widget-generator
+  - tp_landings
+  - tp_qa
+  - tp_statistics
+  - travel_ru
+  - travelpayouts-api
+  - travelpayouts-internal-api
+  - travelpayouts_RoR_test
+
+[U]
+  - uaca
+  - uaca_sandbox
+  - uniboop
+
+[W]
+  - weather
+  - weedle
+  - whitelabel-web
+  - whitelabel_promo
+  - wl_search
+  - woodpecker
+
+================================================================================
+RECOMMENDATIONS
+================================================================================
+
+1. OCR QUALITY ISSUES:
+   - The OCR detected only a small portion of projects due to:
+     * GitHub contribution graphs are visual/graphical
+     * Not all project names are displayed as text in screenshots
+     * OCR errors in text recognition
+
+2. VALIDATION METHOD:
+   - The PDF appears to be GitHub contribution screenshots
+   - These mainly show contribution activity graphs, not full project lists
+   - Only projects with 'Contributed to X/Y' text are reliably detected
+
+3. TIMELINE ACCURACY:
+   - Based on limited OCR detection, cannot fully validate all timeline entries
+   - Detected projects DO appear in timeline (good sign)
+   - Most timeline entries cannot be verified from PDF alone
+
+4. SUGGESTIONS:
+   - Consider using GitHub API for more accurate validation
+   - Or use git commit history directly from repositories
+   - OCR is limited for validating contribution graphs

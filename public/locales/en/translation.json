@@ -1,6 +1,8 @@
 {
   "name": "Pavel Gorlov",
-  "position": "Frontend Developer",
+  "position": "Unit lead / Head of Tech / CTO",
+  "description": "Technical manager and lead developer with seventeen years of experience in web development. Building teams, establishing processes, and implementing AI technologies.",
+  "ogLocale": "en_US",
   "menu": {
     "cv": "CV",
     "home": "Home"
@@ -26,6 +28,6 @@
     "github": "GitHub"
   },
   "footer": {
-    "copyright": "© 2025 Pavel Gorlov. Made with ♡ and minimalism."
+    "copyright": "© 2025 Pavel Gorlov. Made with AI."
   }
 } 

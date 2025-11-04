@@ -5,23 +5,25 @@
   --bg-color: #FFFFFF;
   --text-color: #000000;
   --secondary-text-color: #555555;
-  --link-color: #000000;
-  --link-hover-color: #000000;
+  --link-color: #4A90E2; /* Пастельно-голубой для ссылок */
+  --link-hover-color: #357ABD; /* Более насыщенный голубой для hover */
   --footer-text-color: #777777;
-  --footer-link-color: #555555;
+  --footer-link-color: #4A90E2; /* Пастельно-голубой для ссылок в футере */
   --project-bullet-color: #999999;
   --button-bg-color: transparent;
   --button-icon-color: #000000;
+  --sun-icon-color: #F4D03F; /* Пастельно-желтый для иконки солнца */
+  --moon-icon-color: #E0E0E0; /* Светлый для луны в темной теме */
 }
 
 .dark {
   --bg-color: #1a1a1a; /* Темно-серый фон */
   --text-color: #e0e0e0; /* Светло-серый текст */
   --secondary-text-color: #aaaaaa; /* Менее яркий серый текст */
-  --link-color: #bbbbbb; /* Светло-серый для ссылок */
-  --link-hover-color: #ffffff; /* Белый для hover ссылок */
+  --link-color: #7CB9E8; /* Светло-голубой для ссылок в темной теме */
+  --link-hover-color: #A8D8FF; /* Еще светлее голубой для hover */
   --footer-text-color: #999999; /* Серый для футера */
-  --footer-link-color: #bbbbbb; /* Светло-серый для ссылок в футере */
+  --footer-link-color: #7CB9E8; /* Светло-голубой для ссылок в футере */
   --project-bullet-color: #777777; /* Темно-серый для маркеров */
   --button-icon-color: #e0e0e0; /* Светло-серый для иконок кнопки */
 }
@@ -42,16 +44,27 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Общие стили для ссылок */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
 header, nav, section, footer {
-  max-width: 800px; margin: 0 auto;
+  max-width: 850px; margin: 0 auto;
   padding: 1.5em;
 }
 
 header {
   padding-top: 4em;
-  padding-bottom: 3em;
   display: grid;
-  grid-template-columns: 1fr 150px; /* текст/меню и фото */
+  grid-template-columns: 1fr 200px; /* текст/меню и фото */
   grid-template-rows: auto auto; /* заголовок и меню */
   gap: 1.5em;
   align-items: start;
@@ -74,6 +87,7 @@ h1, h2, h3 {
   margin: 0.2em 0;
   font-weight: normal;
   color: var(--text-color);
+  font-weight: 800;
 }
 
 h1 {
@@ -81,7 +95,13 @@ h1 {
 }
 
 h2 {
-  font-size: 1.5em; color: var(--secondary-text-color);
+  font-size: 1.5em;
+}
+
+/* Специальный стиль для позиции в header */
+h2.position {
+  color: var(--secondary-text-color);
+  font-weight: 400;
 }
 
 nav {
@@ -108,6 +128,13 @@ nav a:hover {
   color: var(--link-hover-color);
 }
 
+/* Волнистое подчёркивание для активного пункта навигации */
+nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-underline-offset: 0.2em;
+}
+
 /* Стили для кнопки переключения темы */
 #theme-toggle {
   background: var(--button-bg-color);
@@ -130,6 +157,7 @@ nav a:hover {
 /* Показываем луну в светлой теме, солнце в темной (по умолчанию) */
 .dark #theme-toggle .icon-tabler-sun {
   display: block;
+  stroke: var(--sun-icon-color); /* Желтое солнце в темной теме */
 }
 .dark #theme-toggle .icon-tabler-moon-stars {
   display: none;
@@ -140,14 +168,10 @@ html:not(.dark) #theme-toggle .icon-tabler-sun {
 }
 html:not(.dark) #theme-toggle .icon-tabler-moon-stars {
   display: block;
-}
-
-section {
-  margin-bottom: 3em;
+  stroke: var(--button-icon-color); /* Темная луна в светлой теме */
 }
 
 section#about p {
-  font-size: 1.1em;
   color: var(--text-color);
 }
 
@@ -170,30 +194,47 @@ footer {
   font-size: 0.9em;
   color: var(--footer-text-color);
   padding-bottom: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
 }
 
-footer a { 
-  color: var(--footer-link-color); 
-  text-decoration: none; 
+footer .footer-top {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-footer a:hover { 
-  text-decoration: underline; 
+
+footer p {
+  margin: 0;
+}
+
+footer a {
+  color: var(--footer-link-color);
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
   color: var(--link-hover-color);
 }
 
 /* Плейсхолдер фотографии в сетке */
 .photo-placeholder {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   background-color: #cccccc;
-  border-radius: 8px; /* скруглённые углы */
+  border-radius: 100px; /* круглая форма */
   grid-column: 2 / 3;
   grid-row: 1 / 3; /* растягиваем на две строки */
   justify-self: end;
+  align-self: start; /* выравниваем по верху */
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1.4em; /* смещаем вниз, выравнивая с началом текста */
+  overflow: hidden; /* обрезаем выходящее за круг содержимое */
 }
 
 .photo-placeholder img {
@@ -201,4 +242,173 @@ footer a:hover {
   height: 100%;
   object-fit: cover;
   border-radius: inherit;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  header {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .photo-placeholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 75px; /* круглая форма для планшета */
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    justify-self: center;
+    margin-top: 2em;
+  }
+
+  header .header-text {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    text-align: center;
+  }
+
+  header nav {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px; /* круглая форма для мобильных */
+  }
+
+  h1 {
+    font-size: 2.5em;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+}
+
+/* CV Page Styles */
+.cv-content {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 0 0 3em;
+}
+
+.cv-section {
+  margin-bottom: 0;
+}
+
+.cv-section h2 {
+  margin-bottom: 1em;
+  padding-bottom: 0.3em;
+  border-bottom: 2px solid var(--text-color);
+}
+
+.cv-section h3 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.cv-section h4 {
+  font-size: 1.1em;
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+  font-weight: 800;
+}
+
+.cv-location {
+  font-size: 0.95em;
+  color: var(--secondary-text-color);
+  margin-bottom: 1em;
+}
+
+.cv-summary {
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+.cv-competency {
+  margin-bottom: 1.5em;
+}
+
+.cv-competency h3 {
+  font-size: 1.05em;
+  margin-bottom: 0.4em;
+}
+
+.cv-competency p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.cv-job {
+  margin-bottom: 2em;
+}
+
+.cv-job h3 {
+  font-size: 1.3em;
+  margin-bottom: 0.3em;
+}
+
+.cv-job-period {
+  font-size: 0.9em;
+  color: var(--secondary-text-color);
+  margin: 0 0 0.5em 0;
+}
+
+.cv-job-growth {
+  font-style: italic;
+  color: var(--secondary-text-color);
+  margin: 0 0 1em 0;
+}
+
+.cv-position {
+  margin-bottom: 1.5em;
+  padding-left: 1em;
+  border-left: 3px solid var(--link-color);
+}
+
+.cv-position h4 {
+  margin-top: 0;
+}
+
+.cv-position-period {
+  font-size: 0.85em;
+  color: var(--secondary-text-color);
+  margin: 0 0 0.5em 0;
+}
+
+.cv-position ul {
+  margin: 0;
+  padding-left: 1.5em;
+  list-style-type: disc;
+}
+
+.cv-position li {
+  margin-bottom: 0.6em;
+  line-height: 1.6;
+}
+
+.cv-education-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cv-education-list li {
+  margin-bottom: 0.8em;
+  line-height: 1.6;
+}
+
+.cv-education-list strong {
+  color: var(--link-color);
+  margin-right: 0.5em;
 }

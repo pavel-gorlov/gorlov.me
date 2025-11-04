@@ -1,33 +1,42 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import i18next from "i18next";
-i18next.changeLanguage("en");
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-	<!-- Раздел "Обо мне" -->
+  <!-- About Me Section -->
   <section id="about">
-    <h3>About Me</h3>
-    <p>Lead engineer and technical manager with 10+ years of experience. Currently, I lead the technology strategy at SuperStartup, where we develop AI-based cloud solutions. Previously, I worked at AcmeCorp and TechSolutions, where I launched several successful products.</p>
-    <p>I actively share my knowledge: I speak at conferences and write a blog. I value minimalism in code and design, focusing on performance and user convenience.</p>
+    <h2>About Me</h2>
+    <p>
+      Technical manager and lead developer with seventeen years of experience in
+      web development. I love solving complex problems, building teams, establishing
+      processes, and constantly seeking ways to improve. I believe that artificial
+      intelligence will make the world and the development sphere better. I actively
+      implement new technologies both in professional activities and in daily
+      life. I'm proud to have been at the origins of Aviasales and over 15 years
+      have progressed from junior to head of technology in a company that grew from
+      three to more than a thousand employees.
+    </p>
   </section>
 
-  <!-- Раздел "Проекты" -->
+  <!-- Projects Section -->
   <section id="projects">
-    <h3>Projects and Achievements</h3>
+    <h2>Projects</h2>
     <ul>
-      <li><strong>SuperProduct X</strong> – development of a high-load platform (100k+ daily users).</li>
-      <li><strong>OpenSource Library Y</strong> – created a popular library (5k stars on GitHub) for data processing.</li>
-      <li><strong>Award Z</strong> – ranked in the top 10 young CTOs by TechMagazine (2024).</li>
+      <li>
+        <strong><a href="https://aviasales.ru" target="_blank">Aviasales</a></strong> – developed the first versions of content and search engines. Played one of the key roles in the early stage of the company's development.
+      </li>
+      <li>
+        <strong><a href="https://travelpayouts.com" target="_blank">Travelpayouts</a></strong> – from the formation of the direction, first informally and then formally, was responsible for technology and the delivery process of the unit.
+      </li>
     </ul>
   </section>
 
-  <!-- Раздел "Контакты" -->
+  <!-- Contacts Section -->
   <section id="contacts">
-    <h3>Contacts</h3>
-    <p>I would be glad to engage in professional communication and new projects. You can contact me via email or social media:</p>
-    <p><strong>Email:</strong> <a href="mailto:ivan@example.com">ivan@example.com</a><br/>
-       <strong>LinkedIn:</strong> <a href="#">ivan-ivanov</a><br/>
-       <strong>GitHub:</strong> <a href="#">@ivanivanov</a></p>
+    <h2>Contacts</h2>
+    <p>
+      I would be happy to engage in professional communication and new projects.
+      You can contact me via <a href="mailto:pavel@gorlov.me">email</a> or on telegram <a href="https://t.me/psgorlov" target="_blank">@psgorlov</a>.
+    </p>
   </section>
 </Layout>

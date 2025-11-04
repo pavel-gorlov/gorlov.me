@@ -1,83 +1,145 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import i18next from "i18next";
-
-i18next.changeLanguage("en");
 ---
 
 <Layout>
-  <article class="mx-auto max-w-3xl px-4 lg:px-0">
+  <article class="cv-content">
+    <!-- Summary -->
+    <section id="summary" class="cv-section">
+      <h2>Summary</h2>
 
-    <!-- Professional Summary -->
-    <section id="summary" class="mb-6">
-      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Professional Summary</h2>
-      <p>
-        Accomplished technical manager with 10+ years of experience building and leading cross-functional engineering teams. Proven record of delivering high-impact products, optimizing processes, and fostering a culture of continuous improvement. Passionate about clean code, developer experience, and user-centric solutions.
+      <p class="cv-location">Saint Petersburg, remote or hybrid</p>
+      <p class="cv-summary">
+        Technical manager with 10 years of experience managing teams of up to 20 people. Over 17 years in web development. I specialize in building teams, establishing processes, infrastructure, and scaling them. I also have extensive experience in implementing and integrating systems of various complexity levels. Was responsible for technology and delivery process in the Aviasales business unit, which operates the partner network (Travelpayouts), whose tools help monetize content and are integrated into hundreds of thousands of sites worldwide. For the past year, I have been actively studying/experimenting with AI and how it can be applied in development.
       </p>
     </section>
 
+    <!-- Key Competencies -->
+    <section id="competencies" class="cv-section">
+      <h2>Key Competencies</h2>
+
+      <div class="cv-competency">
+        <h3>Leadership Skills and People Management</h3>
+        <p>I adapt my management style to the team's maturity and context, striving for Servant Leadership while maintaining flexibility. Tools I've used: regular 1-1s, performance reviews, 360 feedback, skip-level meetings, individual development plans, competency matrices.</p>
+      </div>
+
+      <div class="cv-competency">
+        <h3>Communication and Influence</h3>
+        <p>I advocate for asynchronous communication and documentation, understanding that sometimes meetings are necessary, in which case they should have a clear agenda. I believe in "quiet influence." I have experience in conflict resolution, translating between business and technical language, facilitation, and mediation.</p>
+      </div>
+
+      <div class="cv-competency">
+        <h3>Architecture and Infrastructure</h3>
+        <p>Microservices architecture, Event-driven architecture, API Design (REST, GraphQL), DevOps practices (CI/CD, observability).</p>
+      </div>
+
+      <div class="cv-competency">
+        <h3>Technical Stack</h3>
+        <p>Python, Ruby, Go, Typescript, Postgres, Docker, Kafka, worked with a large number of technologies and tools within web development.</p>
+      </div>
+
+      <div class="cv-competency">
+        <h3>Management Framework</h3>
+        <p>Agile (Scrum, Kanban) methodologies and the theory of constraints are closest to me. Main tool experience — Atlassian ecosystem (JIRA, Confluence, etc.) combined with Slack.</p>
+      </div>
+    </section>
+
     <!-- Experience -->
-    <section id="experience" class="mb-6">
-      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Experience</h2>
+    <section id="experience" class="cv-section">
+      <h2>Work Experience</h2>
 
-      <div class="mb-4">
-        <h3 class="font-semibold">Head of Engineering · SuperStartup</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400">2021 — Present · Remote</p>
-        <ul class="list-disc list-inside ml-4">
-          <li>Led a 20-person engineering org shipping an AI-powered SaaS platform used by 100k+ daily users.</li>
-          <li>Introduced trunk-based development & CI/CD, cutting release cycle from weeks to daily deployments.</li>
-          <li>Reduced cloud spend by 25 % through observability and data-driven optimizations.</li>
-        </ul>
+      <div class="cv-job">
+        <h3>Aviasales / Travelpayouts</h3>
+        <p class="cv-job-period">Dec 2009 - Aug 2025 (15y 8m)</p>
+        <p class="cv-job-growth">Growth: Junior → Middle → Senior → Tech/Frontend TL → Product Manager → Engineering Manager → Head of Technology.</p>
+
+        <div class="cv-position">
+          <h4>Head of Technology</h4>
+          <p class="cv-position-period">Jan 2023 - Aug 2025 (2y 7m)</p>
+          <ul>
+            <li>4 teams, up to 22 engineers, over 5 major projects, over 30 microservices and microfrontends</li>
+            <li>Formed an engineering team for a new flagship AI tools product.</li>
+            <li>Restructured engineering teams within product teams: introduced team leads in all teams, balanced team workload across projects, and optimized team composition for business requirements. This reduced idle time and increased development throughput.</li>
+            <li>Formed and launched an integrations team (technical accounting).</li>
+            <li>Responsible for unit infrastructure budgeting.</li>
+            <li>Led technical integration of enterprise partners with Aviasales.</li>
+            <li>Led the unit's migration to AWS cloud infrastructure, migrated without increasing infrastructure costs, achieving ~20% improvement in static content delivery speed and availability increase to 99.97%.</li>
+            <li>Initiated implementation and deployment of a unified traffic entry point. This reduced average incident resolution time by 30% and enabled applying common observability methods across all teams.</li>
+            <li>Implemented on-call duties and created duty regulations.</li>
+            <li>Together with security engineers and external contractors, conducted two security audits that found no critical vulnerabilities.</li>
+            <li>Developed an action plan and preparatory measures for crisis situations such as RKN blockings or the need for unit isolation.</li>
+            <li>Prepared and implemented partner network integration with the "advertising law" in accordance with business and legal department requirements.</li>
+            <li>Led development and brought to production several major projects: "advertising law," new Whitelabel (outsourced), MVP sales boost tool (5% revenue growth in first quarter), new tool delivery system (+20% installation conversion).</li>
+          </ul>
+        </div>
+
+        <div class="cv-position">
+          <h4>Engineering Manager</h4>
+          <p class="cv-position-period">Mar 2022 - Jan 2023 (10m)</p>
+          <ul>
+            <li>Led implementation of custom partner program for Aviasales' new brand in the US market, launched under tight deadlines. Delivered everything on time and in full scope.</li>
+            <li>Technical debt quarter: 10+ engineers under direct management, gathered context, broke down into initiatives, organized working groups. As a result, several projects significantly reduced maintenance costs, several projects were deprecated, saving ~1% Revenue.</li>
+            <li>Coordinated cross-team interactions, was responsible for cross-team initiative architecture and conflict resolution.</li>
+            <li>Together with HR, implemented a competency matrix for engineers.</li>
+          </ul>
+        </div>
+
+        <div class="cv-position">
+          <h4>Product manager</h4>
+          <p class="cv-position-period">Nov 2020 - Mar 2022 (1y 4m)</p>
+          <ul>
+            <li>Planned MVP functionality and basic architecture of a new product from scratch. Aligned the plan with stakeholders.</li>
+            <li>Assembled a team: 3 frontend engineers and 2 backend.</li>
+            <li>In 9 months, the team implemented MVP and launched it to production for beta testing.</li>
+          </ul>
+        </div>
+
+        <div class="cv-position">
+          <h4>Tech lead / Frontend Team lead</h4>
+          <p class="cv-position-period">Mar 2016 - Nov 2020 (4y 7m)</p>
+          <ul>
+            <li>Managed 5–7 frontend engineers, first within one team, then after dividing into directions, across multiple teams.</li>
+            <li>Developed many embeddable widgets, then actively promoted development of a universal SDK and implemented its core. As a result, new widgets were created with minimal development involvement.</li>
+            <li>Adapted the core of Aviasales search engine for Whitelabel solution.</li>
+            <li>Coordinated technical integrations with enterprise partners such as MegaFon, Tema.ru, Sheremetyevo, Pulkovo, Tinkoff, etc.</li>
+            <li>Played a key role in splitting the unit monolith into microservices.</li>
+            <li>Actively participated in implementing DevOps practices in the company, particularly introduced CI/CD pipeline and containerization of frontend projects within the unit.</li>
+          </ul>
+        </div>
+
+        <div class="cv-position">
+          <h4>Senior Software Engineer</h4>
+          <p class="cv-position-period">May 2013 - Mar 2016 (2y 10m)</p>
+          <ul>
+            <li>Separation of Travelpayouts unit from Aviasales, lead role.</li>
+            <li>Implemented many widgets and the first Aviasales Whitelabel.</li>
+            <li>Played a key role in implementing metrics and A/B mechanism.</li>
+          </ul>
+        </div>
+
+        <div class="cv-position">
+          <h4>Junior/Middle Software Engineer</h4>
+          <p class="cv-position-period">Dec 2009 - May 2013 (3y 5m)</p>
+          <ul>
+            <li>Responsible for Aviasales content engine (over 100,000 pages), implemented caching, speeding up content loading/generation 3x. Automated position analysis and content adjustment, achieved top positions in search engines with 80% of service traffic being organic.</li>
+            <li>Worked on migrating the search engine from PHP to Ruby.</li>
+            <li>Played a key role in planning and implementing high-performance in-memory price cache and wrote UI for it.</li>
+            <li>Created the first embeddable Aviasales search widgets and the first version of back-office for partners.</li>
+          </ul>
+        </div>
       </div>
-
-      <div class="mb-4">
-        <h3 class="font-semibold">Senior Frontend Engineer · TechSolutions</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400">2017 — 2021 · Saint-Petersburg, Russia</p>
-        <ul class="list-disc list-inside ml-4">
-          <li>Architected component library adopted across 8 internal products, unifying UI and reducing defects by 30 %.</li>
-          <li>Migrated legacy codebase to TypeScript & React, improving developer onboarding speed by 40 %.</li>
-        </ul>
-      </div>
-
-      <div class="mb-4">
-        <h3 class="font-semibold">Frontend Developer · AcmeCorp</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400">2013 — 2017 · Saint-Petersburg, Russia</p>
-        <ul class="list-disc list-inside ml-4">
-          <li>Developed customer-facing dashboards that increased user engagement by 15 %.</li>
-          <li>Implemented performance monitoring, shaving initial load time from 4 s to 1.2 s.</li>
-        </ul>
-      </div>
     </section>
 
-    <!-- Education -->
-    <section id="education" class="mb-6">
-      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Education</h2>
-      <p><strong>M.Sc. Computer Science</strong>, Saint Petersburg State University — 2013</p>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="mb-6">
-      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Key Skills</h2>
-      <ul class="flex flex-wrap gap-2">
-        <li class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded">JavaScript / TypeScript</li>
-        <li class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded">React / Astro</li>
-        <li class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded">Node.js</li>
-        <li class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded">AWS & Docker</li>
-        <li class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded">Leadership & Mentoring</li>
-      </ul>
-    </section>
-
-    <!-- Languages -->
-    <section id="languages" class="mb-6">
-      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Languages</h2>
-      <p>Russian — Native · English — Advanced (C1)</p>
-    </section>
-
-    <!-- Certifications -->
-    <section id="certifications" class="mb-6">
-      <h2 class="text-xl font-semibold border-b pb-1 mb-2">Certifications</h2>
-      <ul class="list-disc list-inside ml-4">
-        <li>AWS Certified Solutions Architect — Associate (2023)</li>
+    <!-- Education and Certifications -->
+    <section id="education" class="cv-section">
+      <h2>Education and Certifications</h2>
+      <ul class="cv-education-list">
+        <li><strong>2005 - 2010</strong> BSTU "Voenmekh", master's degree in Information Systems and Technologies</li>
+        <li><strong>2017</strong> MIPT & Yandex: "Mathematics and Python for Data Analysis", "Supervised Learning", "Finding Structure in Data"</li>
+        <li><strong>2018</strong> Product Heroes Course (Ilya Krasinsky's course): product management and unit economics</li>
+        <li><strong>2019</strong> GoPractice: Data-driven product management</li>
+        <li><strong>2023</strong> "Public Speaking" course by Victoria Bychkova</li>
+        <li><strong>2025</strong> Maxim Spiridonov's Workshop "Looking to the Future: Trends That Will Change the Future"</li>
       </ul>
     </section>
   </article>

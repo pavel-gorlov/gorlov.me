@@ -1,15 +1,49 @@
 ---
-import i18next, { t } from "i18next";
+import { Image } from 'astro:assets';
+import { createInstance } from "i18next";
 import '../assets/styles/global.css';
 import ThemeSwitcher from '../components/ThemeSwitcher.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import photoImage from '../assets/images/photo.jpg';
 
-// пути для меню
-const cvPath = `${i18next.language === 'ru' ? '/ru' : ''}/cv`;
-const homePath = i18next.language === 'ru' ? '/ru/' : '/';
+// Import translations directly
+import en from '../../public/locales/en/translation.json';
+import ru from '../../public/locales/ru/translation.json';
 
 // @ts-ignore Astro global is provided at runtime
 const currentPath = Astro.url.pathname;
+const currentLang = currentPath.startsWith('/ru') ? 'ru' : 'en';
+
+// Create a new i18next instance for this request
+const i18n = createInstance();
+await i18n.init({
+  lng: currentLang,
+  fallbackLng: 'en',
+  resources: {
+    en: { translation: en },
+    ru: { translation: ru }
+  },
+  interpolation: {
+    escapeValue: false
+  }
+});
+
+// Translation function
+const t = (key: string) => i18n.t(key);
+
+// Helper function to build localized paths
+const buildLocalePath = (path: string) => {
+  if (currentLang === 'ru') {
+    return `/ru${path}`;
+  }
+  return path;
+};
+
+// пути для меню
+const cvPath = buildLocalePath('/cv');
+const homePath = buildLocalePath('/');
+
 // нормализуем путь для сравнения, удаляя завершающие слеши
 const normalize = (p: string) => p.replace(/\/+$/, '');
 const isHome = normalize(currentPath) === normalize(homePath);
@@ -17,12 +51,48 @@ const isCV = normalize(currentPath).startsWith(normalize(cvPath));
 ---
 
 <!DOCTYPE html>
-<html lang={i18next.language}>
+<html lang={currentLang}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{t('name')} – {t('position')}</title>
-  <script src="/src/assets/scripts/main.js" type="module" defer></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={`https://gorlov.me${currentPath}`} />
+  <meta property="og:title" content={`${t('name')} – ${t('position')}`} />
+  <meta property="og:description" content={t('description')} />
+  <meta property="og:image" content="https://gorlov.me/og-image.jpg" />
+  <meta property="og:locale" content={t('ogLocale')} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:url" content={`https://gorlov.me${currentPath}`} />
+  <meta name="twitter:title" content={`${t('name')} – ${t('position')}`} />
+  <meta name="twitter:description" content={t('description')} />
+  <meta name="twitter:image" content="https://gorlov.me/og-image.jpg" />
+
+  <!-- Language detection and redirect script -->
+  <script is:inline src="/detect-language.js"></script>
+
+  <!-- Inline script to prevent FOUC (Flash of Unstyled Content) -->
+  <script is:inline>
+    // Apply theme immediately before page renders
+    (function() {
+      const storedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = storedTheme || (prefersDark ? 'dark' : 'light');
+
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
 </head>
 <body>
 
@@ -30,21 +100,26 @@ const isCV = normalize(currentPath).startsWith(normalize(cvPath));
   <header class="site-header">
     <div class="header-text">
       <h1>{t('name')}</h1>
-      <h2>{t('position')}</h2>
+      <h2 class="position">{t('position')}</h2>
     </div>
 
-    <div class="photo-placeholder" aria-label="photo placeholder">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="avatarTitle" width="100%" height="100%">
-        <title id="avatarTitle">{t('name')}</title>
-        <circle cx="64" cy="40" r="24" fill="#e2e8f0" />
-        <path d="M16 116c0-26.5 21.5-48 48-48s48 21.5 48 48" fill="#e2e8f0" />
-      </svg>
+    <div class="photo-placeholder" aria-label="photo">
+      <Image
+        src={photoImage}
+        alt={t('name')}
+        width={200}
+        height={200}
+        densities={[1, 1.5, 2, 3]}
+        quality={95}
+        format="webp"
+        loading="lazy"
+        style="width: 100%; height: 100%; object-fit: cover;"
+      />
     </div>
 
     <nav class="site-nav">
       <a href={homePath} aria-current={isHome ? 'page' : undefined} class={isHome ? 'font-semibold underline decoration-wavy' : ''}>{t('menu.home')}</a>
       <a href={cvPath} aria-current={isCV ? 'page' : undefined} class={isCV ? 'font-semibold underline decoration-wavy' : ''}>{t('menu.cv')}</a>
-      <LanguageSwitcher />
       <ThemeSwitcher />
     </nav>
   </header>
@@ -53,8 +128,20 @@ const isCV = normalize(currentPath).startsWith(normalize(cvPath));
 
   <!-- Футер с копирайтом -->
   <footer>
-    {t('footer.copyright')}
+    <div class="footer-top">
+      <SocialLinks />
+      <LanguageSwitcher />
+    </div>
+    <p>{t('footer.copyright')}</p>
   </footer>
 
 </body>
 </html>
+
+<script>
+  import { initializeThemeSwitcher } from '../assets/scripts/theme_switcher.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initializeThemeSwitcher();
+  });
+</script>
