@@ -9,6 +9,13 @@
   const isRussianVersion = currentPath.startsWith('/ru');
   const isEnglishVersion = !isRussianVersion;
 
+  // Only run auto-detection on the English home page
+  // On all other pages (including /ru/, /cv, /ru/cv), respect the URL language
+  const isHomePage = currentPath === '/';
+  if (!isHomePage) {
+    return;
+  }
+
   // Check for user's manual language choice
   const userChoice = localStorage.getItem('userLanguageChoice');
   if (userChoice === 'manual-en' || userChoice === 'manual-ru') {
