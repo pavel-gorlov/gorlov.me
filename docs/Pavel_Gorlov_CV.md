@@ -1,6 +1,6 @@
 # Павел Горлов
 
-## Unit lead / Head of Tech / CTO
+## Unit lead / Engineering Manager / Acting CTO
 
 [Telegram](https://t.me/psgorlov) | [LinkedIn](https://www.linkedin.com/in/pavel-gorlov-3868a225/) | [Github](https://github.com/pavel-gorlov) | [Email](mailto:pavel@gorlov.me)
 

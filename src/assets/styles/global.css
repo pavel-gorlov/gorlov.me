@@ -185,8 +185,13 @@ section#projects li {
 }
 
 section#projects li::before {
-  content: "• "; 
+  content: "• ";
   color: var(--project-bullet-color);
+}
+
+section#projects .projects-more {
+  margin-top: 1em;
+  font-size: 0.95em;
 }
 
 footer {

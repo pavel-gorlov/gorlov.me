@@ -1,10 +1,10 @@
 {
   "name": "Павел Горлов",
-  "position": "Unit lead / Head of Tech / CTO",
+  "position": "Unit lead / Engineering Manager / Acting CTO",
   "description": "Технический менеджер и ведущий разработчик с семнадцатью годами опыта в веб-разработке. Собираю команды, налаживаю процессы и внедряю AI-технологии.",
   "ogLocale": "ru_RU",
   "menu": {
-    "cv": "CV",
+    "cv": "Резюме",
     "home": "Главная"
   },
   "about": {
@@ -28,6 +28,6 @@
     "github": "GitHub"
   },
   "footer": {
-    "copyright": "© 2025 Павел Горлов. Сделано с помощью ИИ."
+    "copyright": "© 2026 Павел Горлов. Написано с помошью CC."
   }
 } 
