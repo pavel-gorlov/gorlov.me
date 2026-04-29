@@ -12,82 +12,205 @@ const buildPath = (lang: 'en' | 'ru') => {
   return hasRuPrefix ? currentPath.replace(/^\/ru/, '') || '/' : currentPath;
 };
 
-const langs: Array<{ code: 'en' | 'ru'; flag: string; label: string }> = [
-  { code: 'en', flag: '🇺🇸', label: 'EN' },
-  { code: 'ru', flag: '🇷🇺', label: 'RU' },
+type LangCode = 'en' | 'ru';
+const langs: Array<{ code: LangCode; label: string }> = [
+  { code: 'en', label: 'EN' },
+  { code: 'ru', label: 'RU' },
 ];
+
+const currentLabel = langs.find((l) => l.code === currentLang)!.label;
+const otherLangs = langs.filter((l) => l.code !== currentLang);
 ---
 
-<div class="lang-switcher" role="group" aria-label="Language selector">
-  {langs.map(({ code, flag, label }) => (
-    code === currentLang ? (
-      <span class="lang-item lang-item-active" aria-current="true">
-        <span class="lang-flag" aria-hidden="true">{flag}</span>
-        <span class="lang-label">{label}</span>
-      </span>
-    ) : (
-      <a
-        href={buildPath(code)}
-        class="lang-item"
-        data-lang={code}
-        hreflang={code}
-        aria-label={code === 'ru' ? 'Переключить на русский' : 'Switch to English'}
-      >
-        <span class="lang-flag" aria-hidden="true">{flag}</span>
-        <span class="lang-label">{label}</span>
-      </a>
-    )
-  ))}
-</div>
+<details class="lang-switcher" aria-label="Language selector">
+  <summary class="lang-trigger" aria-haspopup="listbox">
+    <span class="lang-flag" aria-hidden="true">
+      {currentLang === 'en' ? (
+        <svg viewBox="0 0 19 10" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <rect width="19" height="10" fill="#B22234"/>
+          <rect y="0.77" width="19" height="0.77" fill="#fff"/>
+          <rect y="2.31" width="19" height="0.77" fill="#fff"/>
+          <rect y="3.85" width="19" height="0.77" fill="#fff"/>
+          <rect y="5.38" width="19" height="0.77" fill="#fff"/>
+          <rect y="6.92" width="19" height="0.77" fill="#fff"/>
+          <rect y="8.46" width="19" height="0.77" fill="#fff"/>
+          <rect width="7.6" height="5.38" fill="#3C3B6E"/>
+        </svg>
+      ) : (
+        <svg viewBox="0 0 9 6" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <rect width="9" height="2" y="0" fill="#fff"/>
+          <rect width="9" height="2" y="2" fill="#0039A6"/>
+          <rect width="9" height="2" y="4" fill="#D52B1E"/>
+        </svg>
+      )}
+    </span>
+    <span class="lang-label">{currentLabel}</span>
+    <svg class="lang-chevron" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
+      <path d="M2 4 L5 7 L8 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </summary>
+
+  <ul class="lang-menu" role="listbox">
+    {otherLangs.map(({ code, label }) => (
+      <li role="option">
+        <a
+          href={buildPath(code)}
+          class="lang-item"
+          data-lang={code}
+          hreflang={code}
+          aria-label={code === 'ru' ? 'Переключить на русский' : 'Switch to English'}
+        >
+          <span class="lang-flag" aria-hidden="true">
+            {code === 'en' ? (
+              <svg viewBox="0 0 19 10" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <rect width="19" height="10" fill="#B22234"/>
+                <rect y="0.77" width="19" height="0.77" fill="#fff"/>
+                <rect y="2.31" width="19" height="0.77" fill="#fff"/>
+                <rect y="3.85" width="19" height="0.77" fill="#fff"/>
+                <rect y="5.38" width="19" height="0.77" fill="#fff"/>
+                <rect y="6.92" width="19" height="0.77" fill="#fff"/>
+                <rect y="8.46" width="19" height="0.77" fill="#fff"/>
+                <rect width="7.6" height="5.38" fill="#3C3B6E"/>
+              </svg>
+            ) : (
+              <svg viewBox="0 0 9 6" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <rect width="9" height="2" y="0" fill="#fff"/>
+                <rect width="9" height="2" y="2" fill="#0039A6"/>
+                <rect width="9" height="2" y="4" fill="#D52B1E"/>
+              </svg>
+            )}
+          </span>
+          <span class="lang-label">{label}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</details>
 
 <style>
   .lang-switcher {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5em;
+    position: relative;
+    display: inline-block;
   }
 
-  .lang-item {
+  /* Hide native disclosure marker */
+  .lang-trigger::-webkit-details-marker { display: none; }
+  .lang-trigger { list-style: none; }
+
+  .lang-trigger {
     display: inline-flex;
     align-items: center;
     gap: 0.4em;
-    padding: 0.3em 0.6em;
-    border: 1px solid transparent;
+    padding: 0.35em 0.7em;
+    border: 1px solid rgba(127, 127, 127, 0.35);
     border-radius: 6px;
+    background-color: transparent;
+    color: var(--text-color);
     font-size: 0.9em;
     line-height: 1;
-    color: var(--footer-link-color);
-    text-decoration: none;
-    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    cursor: pointer;
+    user-select: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
   }
 
-  a.lang-item:hover {
-    color: var(--link-hover-color);
-    background-color: rgba(127, 127, 127, 0.08);
-    text-decoration: none;
-  }
-
-  .lang-item-active {
-    color: var(--text-color);
+  .lang-trigger:hover,
+  .lang-switcher[open] .lang-trigger {
     border-color: var(--link-color);
-    background-color: rgba(127, 127, 127, 0.06);
-    cursor: default;
+    background-color: rgba(127, 127, 127, 0.08);
+  }
+
+  .lang-chevron {
+    transition: transform 0.2s ease;
+    opacity: 0.7;
+  }
+
+  .lang-switcher[open] .lang-chevron {
+    transform: rotate(180deg);
   }
 
   .lang-flag {
-    font-size: 1.1em;
-    line-height: 1;
+    display: inline-flex;
+    width: 20px;
+    height: 14px;
+    overflow: hidden;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+  }
+
+  .lang-flag svg {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 
   .lang-label {
     font-weight: 600;
     letter-spacing: 0.4px;
   }
+
+  .lang-menu {
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 0;
+    margin: 0;
+    padding: 4px;
+    list-style: none;
+    min-width: 100%;
+    background-color: var(--bg-color);
+    border: 1px solid rgba(127, 127, 127, 0.35);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    z-index: 10;
+  }
+
+  .lang-menu li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .lang-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0.35em 0.6em;
+    border-radius: 4px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9em;
+    line-height: 1;
+    white-space: nowrap;
+    transition: background-color 0.15s ease;
+  }
+
+  .lang-item:hover {
+    background-color: rgba(127, 127, 127, 0.12);
+    color: var(--text-color);
+    text-decoration: none;
+  }
 </style>
 
 <script>
   document.addEventListener('astro:page-load', () => {
-    document.querySelectorAll<HTMLAnchorElement>('a.lang-item[data-lang]').forEach((link) => {
+    const switcher = document.querySelector<HTMLDetailsElement>('details.lang-switcher');
+    if (!switcher) return;
+
+    document.addEventListener('click', (event) => {
+      if (!switcher.open) return;
+      if (!switcher.contains(event.target as Node)) {
+        switcher.open = false;
+      }
+    });
+
+    switcher.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && switcher.open) {
+        switcher.open = false;
+        const summary = switcher.querySelector<HTMLElement>('summary');
+        summary?.focus();
+      }
+    });
+
+    switcher.querySelectorAll<HTMLAnchorElement>('a.lang-item[data-lang]').forEach((link) => {
       link.addEventListener('click', () => {
         const targetLang = link.dataset.lang;
         if (!targetLang) return;
